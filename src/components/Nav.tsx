@@ -1,17 +1,21 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
 import {Link} from "react-router-dom";
+import {User} from "../models/user";
 
 const Nav = () => {
-    const [user, setUser] = useState({
-        first_name: ''
-    });
+    const [user, setUser] = useState(new User());
 
     useEffect(() => {
         (
             async () => {
                 const {data} = await axios.get('user');
-                setUser(data);
+                setUser(new User(
+                    data.id,
+                    data.first_name,
+                    data.last_name,
+                    data.email
+                ));
             }
         )();
     }, []);
@@ -25,8 +29,8 @@ const Nav = () => {
             <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Company name</a>
 
             <ul className="my-2 my-md-0 mr-md-3">
-                <Link to="/profile" className="p-2 text-white text-decoration-none">{user?.first_name}</Link>
-                <Link to="/login" className="p-2 text-white text-decoration-none"
+                <Link to="/profile" className="p-2 m-2 text-white text-decoration-none badge rounded-pill bg-secondary">{user.name}</Link>
+                <Link to="/login" className="p-2 btn btn-danger"
                     onClick={logout}
                 >Sign out</Link>
             </ul>
