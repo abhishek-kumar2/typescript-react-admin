@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, {SyntheticEvent, useState} from 'react';
-import { Navigate } from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -40,6 +40,8 @@ const Login = () => {
                 />
 
                 <button className="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+
+                <p className="mt-5 mb-3 fs-5 text-muted text-center"><Link className="text-decoration-none" to={'/register'}> Register </Link> today</p>
             </form>
         </main>
     );
