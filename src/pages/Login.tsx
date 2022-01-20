@@ -11,10 +11,10 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const {data} = await axios.post('http://localhost:8001/api/login', {
+            const {data} = await axios.post('login', {
                 email,
                 password
-            }, {withCredentials: true});
+            });
 
             setRedirect(true);
             console.log(data);
