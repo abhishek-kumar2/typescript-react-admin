@@ -71,8 +71,10 @@ const Users = () => {
                                 <td>{user.email}</td>
                                 <td>{user.role.name}</td>
                                 <td>
-                                    <Link to={'/user.id'} role="button" className="btn btn-outline-info me-2">Edit</Link>
-                                    <button type="button" className="btn btn-outline-danger" onClick={() => del(user.id)}>Delete</button>
+                                    <div className="btn-group">
+                                        <Link to={`/users/${user.id}/edit`} role="button" className="btn btn-outline-info">Edit</Link>
+                                        <button type="button" className="btn btn-outline-danger" onClick={() => del(user.id)}>Delete</button>
+                                    </div>
                                 </td>
                             </tr>
                         )
