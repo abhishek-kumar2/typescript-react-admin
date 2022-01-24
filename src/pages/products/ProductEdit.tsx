@@ -2,6 +2,7 @@ import React, {SyntheticEvent, useEffect, useState} from 'react';
 import Wrapper from "../../components/Wrapper";
 import axios from "axios";
 import {Navigate, useParams} from "react-router-dom";
+import ImageUpload from "../../components/ImageUpload";
 
 const ProductEdit = () => {
     const [title, setTitle] = useState('');
@@ -64,10 +65,13 @@ const ProductEdit = () => {
                 </div>
                 <div className="mb-3">
                     <label htmlFor="image" className="form-label">Image</label>
-                    <input type="text" className="form-control" id="image"
-                           defaultValue={image}
-                           onChange={e => setImage(e.target.value)}
-                    />
+                    <div className="input-group">
+                        <input type="text" className="form-control" id="image"
+                               value={image}
+                               onChange={e => setImage(e.target.value)}
+                        />
+                        <ImageUpload uploaded={setImage}/>
+                    </div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="price" className="form-label">Price</label>
