@@ -8,7 +8,7 @@ const ProductCreate = () => {
     const [description, setDescription] = useState('');
     const [image, setImage] = useState('');
     const [price, setPrice] = useState(0);
-    const [redirect, setRedirect] = useState(false)
+    const [redirect, setRedirect] = useState(false);
 
     const submit = async (e: SyntheticEvent) => {
         e.preventDefault();
