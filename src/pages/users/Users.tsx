@@ -38,7 +38,6 @@ const Users = () => {
         if(window.confirm('Are you sure you want to delete this record?')) {
             try {
                 await axios.delete(`users/${id}`);
-
                 setUsers(users.filter((u: User) => u.id !== id));
             } catch (error: any) {
                 console.log(`${error.response.status}: ${error.response.statusText}`);
